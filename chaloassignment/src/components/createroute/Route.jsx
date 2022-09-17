@@ -1,8 +1,8 @@
-import { useCreateForm } from "../../context/createform-context";
+import { useCreateRoute } from "../../context/createform-context";
 import style from "../../styles/createroute.module.css"
 
 const Route = () => {
-    const { createRoute: { route: { routeName } }, dispatch } = useCreateForm();
+    const { createRoute: { route: { routeName } }, dispatch } = useCreateRoute();
     const enterRouteNumber = (e) => {
         dispatch({ type: "ENTER_ROUTE_NAME", payload: { value: e.target.value } })
     }

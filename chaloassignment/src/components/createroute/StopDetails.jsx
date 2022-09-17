@@ -1,13 +1,5 @@
-import { useState } from "react";
-import { useCreateForm } from "../../context/createform-context";
+const StopDetails = ({ stopId, stopName, latitude, longitude }) => {
 
-const StopDetails = () => {
-    const { createRoute: { source: { locationName } }, dispatch } = useCreateForm();
-
-    const [stopId, setStopId] = useState("");
-    const [stopName, setStopName] = useState("");
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
     const enterStopId = (e) => {
         setStopId()
     }
