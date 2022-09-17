@@ -12,6 +12,16 @@ export const manageState = (state, action) => {
         ...state,
         route: { ...state.route, routeName: action.payload.value },
       };
+    case "ENTER_ROUTE_DIRECTION":
+      return {
+        ...state,
+        route: { ...state.route, direction: action.payload.value },
+      };
+    case "ENTER_ROUTE_STATUS":
+      return {
+        ...state,
+        route: { ...state.route, status: action.payload.value },
+      };
     case "ADD_NEW_STOP":
       return {
         ...state,

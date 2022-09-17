@@ -10,7 +10,10 @@ const RouteDirection = () => {
     dispatch,
   } = useCreateRoute();
   const enterRouteNumber = (e) => {
-    dispatch({ type: "ENTER_ROUTE_NAME", payload: { value: e.target.value } });
+    dispatch({
+      type: "ENTER_ROUTE_DIRECTION",
+      payload: { value: e.target.value },
+    });
   };
   return (
     <div>
