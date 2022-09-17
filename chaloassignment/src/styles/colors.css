@@ -1,7 +1,10 @@
-:root{
-    --light_blue_color:#61dafb;
-    --red_color:#dc3545;
-    --green_color:#32da8c;
-    --primary_color:#f7b000;
-    --text_color_white:white;
+:root {
+  --light_blue_color: #61dafb;
+  --red_color: #dc3545;
+  --green_color: #32da8c;
+  --primary_color: #f7b000;
+  --text_color_white: white;
+  --add_stops_color: #f57c00;
+  --input_box_shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px,
+    rgb(0 0 0 / 14%) 0px 5px 8px 0px, rgb(0 0 0 / 12%) 0px 1px 14px 0px;
 }
