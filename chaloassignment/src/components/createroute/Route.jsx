@@ -6,7 +6,7 @@ const Route = () => {
     const enterRouteNumber = (e) => {
         dispatch({ type: "ENTER_ROUTE_NAME", payload: { value: e.target.value } })
     }
-    return <div>
+    return <div className={style.route}>
         <input className={style.route_name} type="text" placeholder="Enter Route/Bus Number" value={routeName} onChange={enterRouteNumber} />
     </div>
 }
