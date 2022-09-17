@@ -1,6 +1,6 @@
 import RouteDetail from "./RouteDetail";
 import NavHeader from "../navheader/NavHeader";
-import style from "../../styles/viewroutes.module.css";
+import style from "../../styles/routes.module.css";
 import { useRoute } from "../../context/routes-context";
 
 const ViewRoutes = () => {
