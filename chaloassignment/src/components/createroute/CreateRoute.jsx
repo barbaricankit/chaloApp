@@ -15,8 +15,8 @@ const CreateRoute = () => {
                 <div className={style.route_dir_status}>
                     <RouteDirection />
                     <RouteStatus />
+                    <AddStop />
                 </div>
-                <AddStop />
             </div>
         </div>
     </>
