@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/createroute" element={<CreateRoute />} />
-        <Route path="/viewroutes" element={<ViewRoutes />} />
+        <Route path="/routes" element={<ViewRoutes />} />
         <Route path="/route/:routeId" element={<SingleRoute />} />
       </Routes>
     </div>
