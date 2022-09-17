@@ -5,6 +5,7 @@ const RouteContext = createContext();
 
 export const RouteProvider = ({ children }) => {
   const [routes, setRoutes] = useState([]);
+  const [searchedBusText, setSearchedBusText] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -20,8 +21,30 @@ export const RouteProvider = ({ children }) => {
     })();
   };
 
+  const searchedBus = (e) => {
+    setSearchedBusText(e.target.value);
+  };
+  const removeRoute = (route) => {
+    setRoutes((routes) =>
+      routes.filter(({ routeId }) => routeId !== route.routeId)
+    );
+  };
+  const filteredBuses = routes.filter((route) =>
+    route.routeName.includes(searchedBusText)
+  );
   return (
-    <RouteContext.Provider value={{ routes, setRoutes, addRoute }}>
+    <RouteContext.Provider
+      value={{
+        routes,
+        setRoutes,
+        addRoute,
+        searchedBusText,
+        setSearchedBusText,
+        searchedBus,
+        filteredBuses,
+        removeRoute,
+      }}
+    >
       {children}
     </RouteContext.Provider>
   );
