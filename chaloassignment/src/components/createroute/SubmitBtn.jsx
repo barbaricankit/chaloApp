@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { useCreateRoute } from "../../context/createroute-context";
 import { useRoute } from "../../context/routes-context";
 import style from "../../styles/createroute.module.css";
@@ -5,11 +6,10 @@ import style from "../../styles/createroute.module.css";
 const SubmitBtn = () => {
   const {
     createRoute: { route, stops },
-    createRoute,
     dispatch,
   } = useCreateRoute();
   const { routes, addRoute } = useRoute();
-
+  const navigate = useNavigate();
   const submit = () => {
     const errorObj = {};
     let flag = false;
@@ -54,6 +54,7 @@ const SubmitBtn = () => {
       dispatch({ type: "SET_ERROR_MESSAGES", payload: { error: errorObj } });
     } else {
       addRoute(route, stops);
+      navigate(`/route/${route.routeId}`);
     }
   };
   return (
