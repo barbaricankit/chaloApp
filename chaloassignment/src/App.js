@@ -5,6 +5,7 @@ import Home from "./components/home/Home";
 import { Routes, Route } from "react-router-dom";
 import CreateRoute from "./components/createroute/CreateRoute";
 import ViewRoutes from "./components/viewroutes/ViewRoutes";
+import SingleRoute from "./components/viewroutes/SingleRoute";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/createroute" element={<CreateRoute />} />
         <Route path="/viewroutes" element={<ViewRoutes />} />
+        <Route path="/route/:routeId" element={<SingleRoute />} />
       </Routes>
     </div>
   );
