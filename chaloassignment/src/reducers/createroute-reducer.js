@@ -48,6 +48,12 @@ export const manageState = (state, action) => {
             : { ...stop, longitude: action.payload.longitude }
         ),
       };
+    case "SET_ERROR_MESSAGES":
+      return {
+        ...state,
+        error: action.payload.error,
+      };
+
     default:
       return state;
   }
