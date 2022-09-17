@@ -53,7 +53,7 @@ const SubmitBtn = () => {
     if (flag) {
       dispatch({ type: "SET_ERROR_MESSAGES", payload: { error: errorObj } });
     } else {
-      addRoute(route);
+      addRoute(route, stops);
     }
   };
   return (
