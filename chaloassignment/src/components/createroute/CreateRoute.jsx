@@ -8,11 +8,18 @@ import style from "../../styles/createroute.module.css";
 import SubmitBtn from "./SubmitBtn";
 import Error from "../Error";
 import { useCreateRoute } from "../../context/createroute-context";
+import { useEffect } from "react";
 
 const CreateRoute = () => {
   const {
-    createRoute: { stops, error },
+    createRoute: { route, stops, error },
+    dispatch,
   } = useCreateRoute();
+  useEffect(() => {
+    if (!route.routeId) {
+      dispatch({ type: "SET_ROUTE_ID" });
+    }
+  }, []);
   return (
     <>
       <NavHeader />

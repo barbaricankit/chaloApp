@@ -2,6 +2,11 @@ import { v4 as uuid } from "uuid";
 
 export const manageState = (state, action) => {
   switch (action.type) {
+    case "SET_ROUTE_ID":
+      return {
+        ...state,
+        route: { ...state.route, routeId: uuid() },
+      };
     case "ENTER_ROUTE_NAME":
       return {
         ...state,
