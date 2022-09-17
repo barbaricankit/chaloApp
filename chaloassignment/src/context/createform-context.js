@@ -12,24 +12,15 @@ export const CreateFormProvider =({children})=>{
             status:"Active",
 
         },
-        source:{
-            locationName:"",
-            locationId:"",
-            lat:"",
-            long:"",
-
-        },
-        destination:{
-            locationName:"",
-            locationId:"",
-            lat:"",
-            long:"",
-            
-        },
         stops:[]
     }
-    const [createRoute,dispatch]=useReducer(manageState,initialState)
-    return <CreateFormContext.Provider value={{createRoute,dispatch}}>
+    const [createRoute,dispatch]=useReducer(manageState,initialState);
+
+    const addStops=()=>{
+        dispatch({type:"ADD_NEW_STOP"})
+    }
+    
+    return <CreateFormContext.Provider value={{createRoute,dispatch,addStops}}>
         {children}
     </CreateFormContext.Provider>
 }
