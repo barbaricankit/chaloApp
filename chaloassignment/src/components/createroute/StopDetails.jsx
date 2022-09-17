@@ -1,8 +1,9 @@
 import { useCreateRoute } from "../../context/createroute-context";
 import style from "../../styles/createroute.module.css";
+import Error from "../Error";
 const StopDetails = ({ stop, stopId }) => {
   const {
-    createRoute: { stops },
+    createRoute: { error },
     dispatch,
   } = useCreateRoute();
 
@@ -24,29 +25,41 @@ const StopDetails = ({ stop, stopId }) => {
       payload: { stopId, longitude: e.target.value },
     });
   };
+
+  const err = error?.stops?.find((stop) => stop.stopId === stopId);
+
   return (
     <div className={style.stop_details}>
-      <input
-        type="text"
-        placeholder="Stop Name"
-        className={`${style.stop_name} m_0_5`}
-        value={stop.stopName}
-        onChange={enterStopName}
-      />
-      <input
-        type="text"
-        placeholder="Latitude"
-        className={`${style.lat} m_0_5`}
-        value={stop.latitude}
-        onChange={enterLatitude}
-      />
-      <input
-        type="text"
-        placeholder="Longitude"
-        className={`${style.long} m_0_5`}
-        value={stop.longitude}
-        onChange={enterLongitude}
-      />
+      <div className={`${style.stop_name} m_0_5`}>
+        <input
+          type="text"
+          placeholder="Stop Name"
+          className={`${style.stop_name_input}`}
+          value={stop.stopName}
+          onChange={enterStopName}
+        />
+        <Error message={err?.stopName} />
+      </div>
+      <div className={`${style.lat} m_0_5`}>
+        <input
+          type="text"
+          placeholder="Latitude"
+          className={`${style.lat_input}`}
+          value={stop.latitude}
+          onChange={enterLatitude}
+        />
+        <Error message={err?.latitude} />
+      </div>
+      <div className={`${style.long} m_0_5`}>
+        <input
+          type="text"
+          placeholder="Longitude"
+          className={`${style.long_input}`}
+          value={stop.longitude}
+          onChange={enterLongitude}
+        />
+        <Error message={err?.longitude} />
+      </div>
     </div>
   );
 };
