@@ -5,26 +5,20 @@
 }
 .route_name{
     padding: 0.5rem ;
-    width:12rem;
+    width:15rem;
     border:none;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 5px 8px 0px, rgb(0 0 0 / 12%) 0px 1px 14px 0px;;
     outline: transparent;
 }
 .create_form{
     display: flex;
-    align-items: center;
     justify-content: center;
+    width:100%;
+    margin-top: 4rem;
 }
 .add_stop_btn{
     display: flex;
     justify-content: center;
     align-items: center;
     color: #f57c00;
-}
-@media only screen and (min-width:1300px){
-    .create_form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 }
