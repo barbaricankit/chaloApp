@@ -1,9 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
-import { manageState } from "../reducers/createform-reducer";
+import { manageState } from "../reducers/createroute-reducer";
 
-const CreateFormContext=createContext();
+const CreateRouteContext=createContext();
 
-export const CreateFormProvider =({children})=>{
+export const CreateRouteProvider =({children})=>{
     const initialState={
         route:{
             routeName:"",
@@ -20,9 +20,9 @@ export const CreateFormProvider =({children})=>{
         dispatch({type:"ADD_NEW_STOP"})
     }
     
-    return <CreateFormContext.Provider value={{createRoute,dispatch,addStops}}>
+    return <CreateRouteContext.Provider value={{createRoute,dispatch,addStops}}>
         {children}
-    </CreateFormContext.Provider>
+    </CreateRouteContext.Provider>
 }
 
-export const useCreateRoute=()=>useContext(CreateFormContext);
+export const useCreateRoute=()=>useContext(CreateRouteContext);
