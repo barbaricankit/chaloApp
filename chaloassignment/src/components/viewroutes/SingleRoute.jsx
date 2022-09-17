@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useRoute } from "../../context/routes-context";
+import Maps from "../map/Map";
 import NavHeader from "../navheader/NavHeader";
 
 const SingleRoute = () => {
@@ -10,11 +11,12 @@ const SingleRoute = () => {
   return (
     <>
       <NavHeader />
-      <p>{route.routeName}</p>
-      <p>{route.direction}</p>
-      <p>{route.status}</p>
+      {route?.stops[0].latitude && <Maps stops={route?.stops} />}
+      <p>{route?.routeName}</p>
+      <p>{route?.direction}</p>
+      <p>{route?.status}</p>
       <div>
-        {route.stops.map((stop) => (
+        {route?.stops?.map((stop) => (
           <>
             <span>{stop.stopName}</span>
             <span>{stop.latitude}</span>
