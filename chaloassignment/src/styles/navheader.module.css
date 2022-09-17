@@ -1,0 +1,14 @@
+.nav_header{
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+.app{
+    width: 100%
+}
+.app_name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
