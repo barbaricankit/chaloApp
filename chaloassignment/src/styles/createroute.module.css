@@ -13,8 +13,7 @@
   padding: 0.5rem;
   width: 96.5%;
   border: none;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px,
-    rgb(0 0 0 / 14%) 0px 5px 8px 0px, rgb(0 0 0 / 12%) 0px 1px 14px 0px;
+  box-shadow: var(--input_box_shadow);
   outline: transparent;
 }
 .create_form {
@@ -27,10 +26,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f57c00;
+  color: var(--add_stops_color);
+  margin: 0 0.5rem;
 }
 .stop_details {
-  width: 100%;
+  width: 98%;
   display: flex;
   justify-content: center;
 }
@@ -45,4 +45,27 @@
 .long {
   width: 4rem;
   flex-grow: 1;
+}
+.stop_name_input {
+  width: 95%;
+}
+.lat_input {
+  width: 95%;
+}
+.long_input {
+  width: 95%;
+}
+.submit {
+  display: flex;
+  justify-content: center;
+}
+.submit_btn {
+  background-color: var(--primary_color);
+  font-size: 14px;
+}
+.route_error {
+  margin: 0.5rem;
+}
+.stop_error {
+  margin: 1rem 0.5rem;
 }
