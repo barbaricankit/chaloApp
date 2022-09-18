@@ -62,6 +62,7 @@ const StopDetails = ({ stop, stopId }) => {
         <Error message={err?.longitude} />
       </div>
       <span
+        className={style.trash_icon}
         onClick={() => dispatch({ type: "DELETE_STOP", payload: { stopId } })}
       >
         <BsFillTrashFill />

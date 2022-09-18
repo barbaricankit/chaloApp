@@ -35,6 +35,9 @@
   justify-content: center;
   align-items: center;
 }
+.trash_icon {
+  margin-bottom: 0.5rem;
+}
 .stop_name {
   width: 5rem;
   flex-grow: 2;
