@@ -19,7 +19,7 @@ const NavHeader = ({ home }) => {
       )}
       {home && <nav className={style.selected_nav}>Home</nav>}
       <div className={style.app}>
-        <p className={style.app_name}>CHALO</p>
+        <p className={style.app_name}>CHALTE HAI</p>
       </div>
     </div>
   );
