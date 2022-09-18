@@ -14,13 +14,20 @@ export const RouteProvider = ({ children }) => {
     })();
   }, []);
 
-  const addRoute = (route, stops) => {
-    setRoutes((routes) => [...routes, { ...route, stops }]);
+  const addRoute = (route) => {
+    setRoutes((routes) => [...routes, { ...route }]);
     (async () => {
-      await routesDB({ value: { ...route, stops }, add: true });
+      await routesDB({ value: { ...route }, add: true });
     })();
   };
-
+  const editRoute = (route) => {
+    setRoutes((routes) =>
+      routes.map((rout) => (rout.routeId === route.routeId ? route : rout))
+    );
+    (async () => {
+      await routesDB({ value: route, edit: true });
+    })();
+  };
   const searchedBus = (e) => {
     setSearchedBusText(e.target.value);
   };
@@ -28,6 +35,9 @@ export const RouteProvider = ({ children }) => {
     setRoutes((routes) =>
       routes.filter(({ routeId }) => routeId !== route.routeId)
     );
+    (async () => {
+      await routesDB({ value: route, remove: true });
+    })();
   };
   const filteredBuses = routes.filter((route) =>
     route.routeName.includes(searchedBusText)
@@ -43,6 +53,7 @@ export const RouteProvider = ({ children }) => {
         searchedBus,
         filteredBuses,
         removeRoute,
+        editRoute,
       }}
     >
       {children}
