@@ -33,6 +33,7 @@
   width: 98%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .stop_name {
   width: 5rem;
