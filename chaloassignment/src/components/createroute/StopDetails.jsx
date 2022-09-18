@@ -52,14 +52,16 @@ const StopDetails = ({ stop, stopId, position }) => {
     <div
       className={style.stop_details}
       draggable
-      onTouchStart={() => dragStart(position)}
-      onTouchMove={() => dragEnter(position)}
-      onTouchEnd={dragEnd}
       onDragStart={() => dragStart(position)}
       onDragEnter={() => dragEnter(position)}
       onDragEnd={dragEnd}
     >
-      <span className={style.drag_icon}>
+      <span
+        className={style.drag_icon}
+        onTouchStart={() => dragStart(position)}
+        onTouchMove={() => dragEnter(position)}
+        onTouchEnd={dragEnd}
+      >
         <MdOutlineDragIndicator />
       </span>
       <div className={`${style.stop_name} m_0_5`}>
