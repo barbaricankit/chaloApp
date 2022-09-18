@@ -50,4 +50,7 @@
   .bulk_upload_btn {
     width: 12rem;
   }
+  .home_screen_image {
+    width: 70%;
+  }
 }

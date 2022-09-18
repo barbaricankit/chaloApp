@@ -9,7 +9,11 @@ const Home = () => {
       <NavHeader home={true} />
       <div className={style.home_page}>
         <img
-          src="/icons/home_screen.jpeg"
+          src={
+            window.innerWidth > 900
+              ? `/icons/home_screen_image.png`
+              : `/icons/home_screen.jpeg`
+          }
           alt="Home screen image"
           className={style.home_screen_image}
         />
