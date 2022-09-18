@@ -39,6 +39,12 @@
 .drag_icon {
   margin-bottom: 0.5rem;
 }
+.drag_icon {
+  margin-left: 0.5rem;
+}
+.trash_icon {
+  color: var(--red_color);
+}
 .stop_name {
   width: 5rem;
   flex-grow: 2;
