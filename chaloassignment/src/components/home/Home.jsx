@@ -2,6 +2,7 @@ import AddRoute from "./AddRoute";
 import ViewRoute from "./ViewRoute";
 import style from "../../styles/homepage.module.css";
 import NavHeader from "../navheader/NavHeader";
+import BulkUpload from "./BulkUpdate";
 const Home = () => {
   return (
     <>
@@ -12,8 +13,11 @@ const Home = () => {
           alt="Home screen image"
           className={style.home_screen_image}
         />
-        <ViewRoute />
-        <AddRoute />
+        <div className={style.home_page_btns}>
+          <ViewRoute />
+          <AddRoute />
+          <BulkUpload />
+        </div>
       </div>
     </>
   );
