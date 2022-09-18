@@ -12,7 +12,9 @@ const ViewRoutes = () => {
 
       <div className={style.routes}>
         <SearchBus />
-        {filteredBuses.length === 0 && <p>No Routes to show</p>}
+        {filteredBuses.length === 0 && (
+          <p className={style.no_route_msg}>No Routes to show</p>
+        )}
         {filteredBuses.length > 0 && (
           <>
             <div className={style.routes_list_header}>

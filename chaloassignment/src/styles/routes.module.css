@@ -73,3 +73,9 @@
 .odd_list_data {
   background-color: var(--table_odd_list_color);
 }
+.no_route_msg {
+  margin: 2rem;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--primary_color);
+}
