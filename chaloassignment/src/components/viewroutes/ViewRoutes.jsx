@@ -17,7 +17,7 @@ const ViewRoutes = () => {
           <>
             <div className={style.routes_list_header}>
               <div className={style.routes_list_detail_header}>
-                <p>Bus Number</p>
+                <p>Bus No.</p>
                 <p>Direction</p>
                 <p>Status</p>
               </div>
