@@ -32,6 +32,7 @@ export const routesDB = async (props) => {
         let remove = props?.remove;
         let add = props?.add;
         let edit = props?.edit;
+        let bulkAdd = props?.bulkAdd;
         const result = idQuery.result;
         if (value && remove) {
           const routeIndex = result.findIndex(
@@ -65,6 +66,12 @@ export const routesDB = async (props) => {
               };
             };
           }
+        } else if (value && bulkAdd) {
+          value.forEach((val) => store.put(val));
+          const routes = store.getAll();
+          routes.onsuccess = async () => {
+            resolve(routes.result);
+          };
         } else {
           const result = idQuery.result;
           resolve(result);
