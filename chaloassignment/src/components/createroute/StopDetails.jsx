@@ -2,9 +2,12 @@ import { useCreateRoute } from "../../context/createroute-context";
 import { BsFillTrashFill } from "react-icons/bs";
 import style from "../../styles/createroute.module.css";
 import Error from "../Error";
-const StopDetails = ({ stop, stopId }) => {
+import { useRef } from "react";
+const StopDetails = ({ stop, stopId, position }) => {
   const {
-    createRoute: { error },
+    createRoute: { error, route },
+    dragStartRef,
+    dragEnterRef,
     dispatch,
   } = useCreateRoute();
 
@@ -28,9 +31,32 @@ const StopDetails = ({ stop, stopId }) => {
   };
 
   const err = error?.stops?.find((stop) => stop.stopId === stopId);
-
+  const dragStart = () => {
+    dragStartRef.current = position;
+  };
+  const dragEnter = () => {
+    console.log(position);
+    dragEnterRef.current = position;
+  };
+  console.log(dragEnterRef.current, position);
+  const dragEnd = () => {
+    console.log(dragEnterRef.current);
+    const stopsList = [...route.stops];
+    const draggableStop = stopsList[dragStartRef.current];
+    stopsList.splice(dragStartRef.current, 1);
+    stopsList.splice(dragEnterRef.current, 0, draggableStop);
+    dispatch({ type: "UPDATE_STOP_ORDER", payload: { stops: stopsList } });
+    dragStartRef.current = null;
+    dragEnterRef.current = null;
+  };
   return (
-    <div className={style.stop_details}>
+    <div
+      className={style.stop_details}
+      draggable
+      onDragStart={() => dragStart(position)}
+      onDragEnter={() => dragEnter(position)}
+      onDragEnd={dragEnd}
+    >
       <div className={`${style.stop_name} m_0_5`}>
         <input
           type="text"

@@ -33,7 +33,7 @@ const CreateRoute = () => {
     };
     // eslint-disable-next-line
   }, [routes]);
-  console.log(routeId, routes);
+
   return (
     <>
       <NavHeader />
@@ -45,8 +45,13 @@ const CreateRoute = () => {
             <RouteStatus />
             <AddStop />
           </div>
-          {route?.stops.map((stop) => (
-            <StopDetails key={stop.stopId} stop={stop} stopId={stop.stopId} />
+          {route?.stops.map((stop, index) => (
+            <StopDetails
+              key={stop.stopId}
+              stop={stop}
+              stopId={stop.stopId}
+              position={index}
+            />
           ))}
           <div className={style.stop_error}>
             <Error message={error.stop} />

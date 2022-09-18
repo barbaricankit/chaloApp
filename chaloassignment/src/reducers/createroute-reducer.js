@@ -118,6 +118,11 @@ export const manageState = (state, action) => {
           stops: [],
         },
       };
+    case "UPDATE_STOP_ORDER":
+      return {
+        ...state,
+        route: { ...state.route, stops: action.payload.stops },
+      };
     default:
       return state;
   }
