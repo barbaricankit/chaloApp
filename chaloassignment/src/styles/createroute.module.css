@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--add_stops_color);
+  color: var(--primary_color);
   margin: 0 0.5rem;
 }
 .stop_details {
@@ -74,6 +74,7 @@
 }
 .submit_btn {
   background-color: var(--primary_color);
+  color: var(--text_white_color);
   font-size: 14px;
 }
 .route_error {
