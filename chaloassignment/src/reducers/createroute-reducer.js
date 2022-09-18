@@ -38,6 +38,16 @@ export const manageState = (state, action) => {
           ],
         },
       };
+    case "DELETE_STOP":
+      return {
+        ...state,
+        route: {
+          ...state.route,
+          stops: state.route.stops.filter(
+            ({ stopId }) => stopId !== action.payload.stopId
+          ),
+        },
+      };
     case "ENTER_STOP_NAME":
       return {
         ...state,

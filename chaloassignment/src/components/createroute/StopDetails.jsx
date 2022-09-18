@@ -1,4 +1,5 @@
 import { useCreateRoute } from "../../context/createroute-context";
+import { BsFillTrashFill } from "react-icons/bs";
 import style from "../../styles/createroute.module.css";
 import Error from "../Error";
 const StopDetails = ({ stop, stopId }) => {
@@ -60,6 +61,11 @@ const StopDetails = ({ stop, stopId }) => {
         />
         <Error message={err?.longitude} />
       </div>
+      <span
+        onClick={() => dispatch({ type: "DELETE_STOP", payload: { stopId } })}
+      >
+        <BsFillTrashFill />
+      </span>
     </div>
   );
 };
