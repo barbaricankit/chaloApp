@@ -52,9 +52,9 @@ const StopDetails = ({ stop, stopId, position }) => {
     <div
       className={style.stop_details}
       draggable
-      onTouchStart={() => dragStart(position)}
-      onTouchMove={() => dragEnter(position)}
-      onTouchEnd={dragEnd}
+      // onTouchStart={() => dragStart(position)}
+      // onTouchMove={() => dragEnter(position)}
+      // onTouchEnd={dragEnd}
       onDragStart={() => dragStart(position)}
       onDragEnter={() => dragEnter(position)}
       onDragEnd={dragEnd}
