@@ -14,6 +14,7 @@ export const checkErrorMessages = ({ route, routes, edit }) => {
       );
       if (!edit && isRouteAlreadyPresent) {
         errorObj.routeDirection = "The bus detail is already present";
+        flag = true;
       }
       if (edit) {
         const isRouteAlreadyPresent = sameRoutes.find(
@@ -23,9 +24,9 @@ export const checkErrorMessages = ({ route, routes, edit }) => {
         );
         if (isRouteAlreadyPresent) {
           errorObj.routeDirection = "There is a bus detail already present";
+          flag = true;
         }
       }
-      flag = true;
     }
   }
   if (route?.stops.length < 2) {
