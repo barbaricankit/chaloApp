@@ -107,7 +107,7 @@ export const manageState = (state, action) => {
       return {
         route: {
           routeName: "",
-          direction: "Up",
+          direction: "UP",
           routeId: "",
           status: "Active",
           stops: [],
