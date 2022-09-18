@@ -7,11 +7,11 @@ export const CreateRouteProvider = ({ children }) => {
   const initialState = {
     route: {
       routeName: "",
-      direction: "",
+      direction: "Up",
       routeId: "",
       status: "Active",
+      stops: [],
     },
-    stops: [],
     error: {
       routeName: "",
       routeDirection: "",
