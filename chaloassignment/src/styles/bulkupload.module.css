@@ -1,0 +1,42 @@
+.file_choose_field {
+  margin: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload_icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.import_text,
+.export_text {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+}
+.input_field {
+  display: none;
+}
+.imported_message {
+  color: var(--primary_color);
+}
+.upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upload_btn {
+  font-size: 1.2rem;
+  background-color: var(--primary_color);
+  color: var(--text_white_color);
+}
+.export_data_btn {
+  margin: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}

@@ -28,6 +28,12 @@ export const RouteProvider = ({ children }) => {
       await routesDB({ value: route, edit: true });
     })();
   };
+  const bulkUploadRoutes = (route) => {
+    setRoutes((routes) => [...routes, ...route]);
+    (async () => {
+      await routesDB({ value: route, bulkAdd: true });
+    })();
+  };
   const searchedBus = (e) => {
     setSearchedBusText(e.target.value);
   };
@@ -54,6 +60,7 @@ export const RouteProvider = ({ children }) => {
         filteredBuses,
         removeRoute,
         editRoute,
+        bulkUploadRoutes,
       }}
     >
       {children}
