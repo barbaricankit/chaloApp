@@ -1,0 +1,28 @@
+.border_none {
+  border: none;
+}
+.m_1 {
+  margin: 1rem;
+}
+.m_0_5 {
+  margin: 0.3rem;
+}
+.p_1 {
+  padding: 1rem;
+}
+.btn_pd {
+  padding: 0.5rem 1rem;
+}
+.br_4 {
+  border-radius: 4px;
+}
+.error_message {
+  margin: 0;
+  font-size: 10px;
+  color: var(--red_color);
+  word-break: break-all;
+  height: 12px;
+}
+.bold {
+  font-weight: bold;
+}

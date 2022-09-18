@@ -1,0 +1,36 @@
+.nav_header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--secondary_color);
+}
+.nav_option {
+  text-decoration: none;
+  color: var(--black_color);
+  font-size: 1.2rem;
+}
+.nav_back_option {
+  display: flex;
+  color: var(--primary_color);
+  font-size: 2rem;
+  padding-right: 1rem;
+}
+.app {
+  width: 100%;
+}
+.app_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary_color);
+}
+.selected_nav {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
