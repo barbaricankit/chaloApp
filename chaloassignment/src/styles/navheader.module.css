@@ -2,16 +2,17 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  background-color: var(--primary_color);
+  background-color: var(--secondary_color);
 }
 .nav_option {
   text-decoration: none;
   color: var(--black_color);
+  font-size: 1.2rem;
 }
 .nav_back_option {
   display: flex;
-  color: var(--text_white_color);
-  font-size: 25px;
+  color: var(--primary_color);
+  font-size: 2rem;
   padding-right: 1rem;
 }
 .app {
@@ -23,9 +24,13 @@
   justify-content: center;
   margin: 0;
   font-weight: bold;
-  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary_color);
 }
 .selected_nav {
-  color: #fff6fe;
+  color: black;
   font-weight: bold;
+  font-size: 1.2rem;
 }
