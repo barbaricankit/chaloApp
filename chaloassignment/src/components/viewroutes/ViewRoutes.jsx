@@ -9,29 +9,34 @@ const ViewRoutes = () => {
   return (
     <>
       <NavHeader />
+
       <div className={style.routes}>
         <SearchBus />
+        {filteredBuses.length === 0 && <p>No Routes to show</p>}
+        {filteredBuses.length > 0 && (
+          <>
+            <div className={style.routes_list_header}>
+              <div className={style.routes_list_detail_header}>
+                <p>Bus Number</p>
+                <p>Direction</p>
+                <p>Status</p>
+              </div>
+              <div className={style.routes_list_btn_header}>
+                <p className={style.edit_btn}>Edit</p>
+                <p className={style.edit_btn}>Remove</p>
+              </div>
+            </div>
 
-        <div className={style.routes_list_header}>
-          <div className={style.routes_list_detail_header}>
-            <p>Bus Number</p>
-            <p>Direction</p>
-            <p>Status</p>
-          </div>
-          <div className={style.routes_list_btn_header}>
-            <p className={style.edit_btn}>Edit</p>
-            <p className={style.edit_btn}>Remove</p>
-          </div>
-        </div>
-
-        {filteredBuses.map((route, index) => (
-          <RouteDetail
-            key={route.routeId}
-            route={route}
-            remove={true}
-            index={index}
-          />
-        ))}
+            {filteredBuses.map((route, index) => (
+              <RouteDetail
+                key={route.routeId}
+                route={route}
+                remove={true}
+                index={index}
+              />
+            ))}
+          </>
+        )}
       </div>
     </>
   );
