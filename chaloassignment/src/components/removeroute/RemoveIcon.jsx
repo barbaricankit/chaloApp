@@ -1,12 +1,19 @@
+import { useState } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
-import { useRoute } from "../../context/routes-context";
+import style from "../../styles/routes.module.css";
+import ConfirmationModal from "./ConfirmationModal";
 
 const RemoveIcon = ({ route }) => {
-  const { removeRoute } = useRoute();
+  const [state, setState] = useState(false);
   return (
-    <span onClick={() => removeRoute(route)}>
-      <BsFillTrashFill />
-    </span>
+    <>
+      <span onClick={() => setState(true)} className={style.remove_btn}>
+        <BsFillTrashFill />
+      </span>
+      {state && (
+        <ConfirmationModal route={route} closeModal={() => setState(false)} />
+      )}
+    </>
   );
 };
 export default RemoveIcon;
