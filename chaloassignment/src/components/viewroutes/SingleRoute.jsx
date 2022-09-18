@@ -12,26 +12,31 @@ const SingleRoute = () => {
     <>
       <NavHeader />
       {route?.stops[0].latitude && <Maps stops={route?.stops} />}
-      <p>
-        <span className="bold">Bus Number:</span> {route?.routeName}
-      </p>
-      <p>
-        <span className="bold">Bus Direction:</span> {route?.direction}
-      </p>
-      <p>
-        <span className="bold">Bus Status:</span> {route?.status}
-      </p>
-      <div className={`bold ${style.stop_detail}`}>
-        <p>Location Name</p>
-        <p>Latitude</p>
-        <p>Longitude</p>
+      <div className={style.meta_data}>
+        <p>
+          <span className="bold">Bus Number:</span> {route?.routeName}
+        </p>
+        <p>
+          <span className="bold">Bus Direction:</span> {route?.direction}
+        </p>
+        <p>
+          <span className="bold">Bus Status:</span> {route?.status}
+        </p>
+      </div>
+      <div className={`bold ${style.stop_detail} ${style.table_header}`}>
+        <p className={style.column_header}>Location Name</p>
+        <p className={style.column_header}>Latitude</p>
+        <p className={style.column_header}>Longitude</p>
       </div>
       <div>
         {route?.stops?.map((stop) => (
-          <div className={style.stop_detail} key={stop.stopId}>
-            <p>{stop.stopName}</p>
-            <p>{stop.latitude}</p>
-            <p>{stop.longitude}</p>
+          <div
+            className={`${style.stop_detail} ${style.table_data}`}
+            key={stop.stopId}
+          >
+            <p className={style.column_data}>{stop.stopName}</p>
+            <p className={style.column_data}>{stop.latitude}</p>
+            <p className={style.column_data}>{stop.longitude}</p>
           </div>
         ))}
       </div>
