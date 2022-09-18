@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
-  width: 100%;
+  text-align: center;
+  margin: 0 1rem;
 }
 .route_link {
   display: block;
@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   background-color: var(--table_header_color);
+  color: var(--text_white_color);
   margin: 0.5rem 0;
   font-weight: 600;
 }
@@ -22,12 +23,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
-  width: 80%;
+  margin-left: 1rem;
+  width: 100%;
 }
 .routes_list_btn_header {
   display: flex;
   margin: 0.5rem;
+  width: 110px;
+  margin-left: auto;
 }
 .route_detail {
   display: flex;
@@ -36,15 +39,16 @@
 .edit_remove_btns {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0.5rem;
+  margin-left: auto;
+  width: 120px;
 }
 .remove_btn {
   margin: 0 0.5rem;
-  padding: 0.5rem;
 }
 .edit_btn {
   margin: 0 0.5rem;
-  padding: 0.5rem;
 }
 .search_field {
   position: relative;
@@ -60,9 +64,9 @@
   padding: 0.4rem 1.5rem;
   margin: 1rem;
 }
-.route_status {
+/* .route_status {
   padding-right: 2rem;
-}
+} */
 .even_list_data {
   background-color: var(--table_even_list_color);
 }
