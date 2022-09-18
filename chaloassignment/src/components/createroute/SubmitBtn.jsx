@@ -2,58 +2,28 @@ import { useNavigate } from "react-router";
 import { useCreateRoute } from "../../context/createroute-context";
 import { useRoute } from "../../context/routes-context";
 import style from "../../styles/createroute.module.css";
+import { checkErrorMessages } from "../../utils";
 
-const SubmitBtn = () => {
+const SubmitBtn = ({ edit }) => {
   const {
-    createRoute: { route, stops },
+    createRoute: { route },
     dispatch,
   } = useCreateRoute();
-  const { routes, addRoute } = useRoute();
+  const { routes, addRoute, editRoute } = useRoute();
   const navigate = useNavigate();
+
   const submit = () => {
-    const errorObj = {};
-    let flag = false;
-    if (!route.routeName) {
-      errorObj.routeName = "Please enter the bus number";
-      flag = true;
-    } else {
-      const isRoutePresent = routes.find(
-        (rout) => rout.routeId === route.routeId
-      );
-      if (isRoutePresent) {
-        if (isRoutePresent.direction === route.direction) {
-          errorObj.routeDirection = "The bus detail is already present";
-        }
-        flag = true;
-      }
-    }
-    if (stops.length < 2) {
-      errorObj.stop = "Please enter atleast 2 stops for the route";
-      flag = true;
-    }
-    if (stops.length > 0) {
-      errorObj.stops = stops.map((stop) => {
-        const obj = {};
-        obj.stopId = stop.stopId;
-        if (!stop.stopName) {
-          flag = true;
-          obj.stopName = "Please enter the stopName";
-        }
-        if (!stop.latitude) {
-          flag = true;
-          obj.latitude = "Please enter the latitude";
-        }
-        if (!stop.longitude) {
-          flag = true;
-          obj.longitude = "Please enter the longitude";
-        }
-        return obj;
-      });
-    }
+    const { errorObj, flag } = checkErrorMessages({ route, routes, edit });
     if (flag) {
       dispatch({ type: "SET_ERROR_MESSAGES", payload: { error: errorObj } });
+    } else if (!edit) {
+      addRoute(route);
+      dispatch({ type: "RESET_ERROR_MESSAGES" });
+      navigate(`/route/${route.routeId}`);
     } else {
-      addRoute(route, stops);
+      console.log("Entered");
+      editRoute(route);
+      dispatch({ type: "RESET_ERROR_MESSAGES" });
       navigate(`/route/${route.routeId}`);
     }
   };

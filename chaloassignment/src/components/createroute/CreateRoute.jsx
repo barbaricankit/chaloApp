@@ -9,17 +9,30 @@ import SubmitBtn from "./SubmitBtn";
 import Error from "../Error";
 import { useCreateRoute } from "../../context/createroute-context";
 import { useEffect } from "react";
+import { useParams } from "react-router";
+import { useRoute } from "../../context/routes-context";
 
 const CreateRoute = () => {
+  const { routeId } = useParams();
+  const { routes } = useRoute();
   const {
-    createRoute: { route, stops, error },
+    createRoute: { route, error },
     dispatch,
   } = useCreateRoute();
   useEffect(() => {
-    if (!route.routeId) {
+    if (routeId && routes?.length > 0) {
+      dispatch({
+        type: "SET_ROUTE_DETAILS",
+        payload: { route: routes.find((route) => route.routeId === routeId) },
+      });
+    } else if (!route.routeId) {
       dispatch({ type: "SET_ROUTE_ID" });
     }
-  }, []);
+    return () => {
+      dispatch({ type: "RESET_STATE" });
+    };
+  }, [routes]);
+  console.log(routeId, routes);
   return (
     <>
       <NavHeader />
@@ -31,7 +44,7 @@ const CreateRoute = () => {
             <RouteStatus />
             <AddStop />
           </div>
-          {stops.map((stop) => (
+          {route?.stops.map((stop) => (
             <StopDetails key={stop.stopId} stop={stop} stopId={stop.stopId} />
           ))}
           <div className={style.stop_error}>
@@ -39,7 +52,7 @@ const CreateRoute = () => {
           </div>
         </div>
       </div>
-      {stops.length > 0 && <SubmitBtn />}
+      {route?.stops.length > 0 && <SubmitBtn edit={routeId ? true : false} />}
     </>
   );
 };
