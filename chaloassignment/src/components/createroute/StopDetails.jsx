@@ -1,8 +1,9 @@
 import { useCreateRoute } from "../../context/createroute-context";
 import { BsFillTrashFill } from "react-icons/bs";
+import { MdOutlineDragIndicator } from "react-icons/md";
 import style from "../../styles/createroute.module.css";
 import Error from "../Error";
-import { useRef } from "react";
+
 const StopDetails = ({ stop, stopId, position }) => {
   const {
     createRoute: { error, route },
@@ -35,12 +36,10 @@ const StopDetails = ({ stop, stopId, position }) => {
     dragStartRef.current = position;
   };
   const dragEnter = () => {
-    console.log(position);
     dragEnterRef.current = position;
   };
-  console.log(dragEnterRef.current, position);
+
   const dragEnd = () => {
-    console.log(dragEnterRef.current);
     const stopsList = [...route.stops];
     const draggableStop = stopsList[dragStartRef.current];
     stopsList.splice(dragStartRef.current, 1);
@@ -57,6 +56,9 @@ const StopDetails = ({ stop, stopId, position }) => {
       onDragEnter={() => dragEnter(position)}
       onDragEnd={dragEnd}
     >
+      <span className={style.drag_icon}>
+        <MdOutlineDragIndicator />
+      </span>
       <div className={`${style.stop_name} m_0_5`}>
         <input
           type="text"
