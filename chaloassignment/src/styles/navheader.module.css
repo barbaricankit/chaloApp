@@ -1,14 +1,25 @@
-.nav_header{
-    display: flex;
-    align-items: center;
-    margin: 1rem;
+.nav_header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary_color);
 }
-.app{
-    width: 100%
+.nav_option {
+  text-decoration: none;
+  color: var(--black_color);
 }
-.app_name{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+.nav_back_option {
+  display: flex;
+  color: var(--text_white_color);
+  font-size: 25px;
+  padding-right: 1rem;
+}
+.app {
+  width: 100%;
+}
+.app_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
