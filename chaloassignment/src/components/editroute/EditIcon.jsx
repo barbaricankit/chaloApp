@@ -1,6 +1,5 @@
 import { MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useRoute } from "../../context/routes-context";
 import style from "../../styles/routes.module.css";
 
 const EditIcon = ({ route }) => {

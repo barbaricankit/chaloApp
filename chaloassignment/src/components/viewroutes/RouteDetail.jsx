@@ -7,7 +7,7 @@ const RouteDetail = ({ route, index }) => {
   return (
     <div
       className={`${style.route_detail} ${
-        index % 2 == 0 ? style.even_list_data : style.odd_list_data
+        index % 2 === 0 ? style.even_list_data : style.odd_list_data
       }`}
     >
       <Link to={`/route/${route.routeId}`} className={style.route_link}>
