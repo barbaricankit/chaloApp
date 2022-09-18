@@ -2,7 +2,7 @@ import AddRoute from "./AddRoute";
 import ViewRoute from "./ViewRoute";
 import style from "../../styles/homepage.module.css";
 import NavHeader from "../navheader/NavHeader";
-import BulkUpload from "./BulkUpdate";
+import BulkUpload from "./BulkUpload";
 const Home = () => {
   return (
     <>

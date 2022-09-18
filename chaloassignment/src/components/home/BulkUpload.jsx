@@ -3,7 +3,7 @@ import style from "../../styles/homepage.module.css";
 
 const BulkUpload = () => {
   return (
-    <Link to="/routes">
+    <Link to="/bulkupload">
       <button
         className={`${style.bulk_upload_btn} border_none m_1 btn_pd br_4`}
       >
