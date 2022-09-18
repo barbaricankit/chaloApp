@@ -25,50 +25,89 @@ export const manageState = (state, action) => {
     case "ADD_NEW_STOP":
       return {
         ...state,
-        stops: [
-          ...state.stops,
-          {
-            stopId: uuid(),
-            stopName: "",
-            latitude: "",
-            longitude: "",
-          },
-        ],
+        route: {
+          ...state.route,
+          stops: [
+            ...state.route.stops,
+            {
+              stopId: uuid(),
+              stopName: "",
+              latitude: "",
+              longitude: "",
+            },
+          ],
+        },
       };
-
     case "ENTER_STOP_NAME":
       return {
         ...state,
-        stops: state.stops.map((stop) =>
-          stop.stopId !== action.payload.stopId
-            ? stop
-            : { ...stop, stopName: action.payload.stopName }
-        ),
+        route: {
+          ...state.route,
+          stops: state.route.stops.map((stop) =>
+            stop.stopId !== action.payload.stopId
+              ? stop
+              : { ...stop, stopName: action.payload.stopName }
+          ),
+        },
       };
     case "ENTER_LATITUDE":
       return {
         ...state,
-        stops: state.stops.map((stop, index) =>
-          stop.stopId !== action.payload.stopId
-            ? stop
-            : { ...stop, latitude: action.payload.latitude }
-        ),
+        route: {
+          ...state.route,
+          stops: state.route.stops.map((stop, index) =>
+            stop.stopId !== action.payload.stopId
+              ? stop
+              : { ...stop, latitude: action.payload.latitude }
+          ),
+        },
       };
     case "ENTER_LONGITUDE":
       return {
         ...state,
-        stops: state.stops.map((stop, index) =>
-          stop.stopId !== action.payload.stopId
-            ? stop
-            : { ...stop, longitude: action.payload.longitude }
-        ),
+        route: {
+          ...state.route,
+          stops: state.route.stops.map((stop, index) =>
+            stop.stopId !== action.payload.stopId
+              ? stop
+              : { ...stop, longitude: action.payload.longitude }
+          ),
+        },
       };
     case "SET_ERROR_MESSAGES":
       return {
         ...state,
         error: action.payload.error,
       };
-
+    case "RESET_ERROR_MESSAGES":
+      return {
+        ...state,
+        error: {
+          routeName: "",
+          routeDirection: "",
+          stops: [],
+        },
+      };
+    case "SET_ROUTE_DETAILS":
+      return {
+        ...state,
+        route: action.payload.route,
+      };
+    case "RESET_STATE":
+      return {
+        route: {
+          routeName: "",
+          direction: "Up",
+          routeId: "",
+          status: "Active",
+          stops: [],
+        },
+        error: {
+          routeName: "",
+          routeDirection: "",
+          stops: [],
+        },
+      };
     default:
       return state;
   }
