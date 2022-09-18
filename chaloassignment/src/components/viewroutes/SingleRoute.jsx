@@ -28,7 +28,7 @@ const SingleRoute = () => {
       </div>
       <div>
         {route?.stops?.map((stop) => (
-          <div className={style.stop_detail}>
+          <div className={style.stop_detail} key={stop.stopId}>
             <p>{stop.stopName}</p>
             <p>{stop.latitude}</p>
             <p>{stop.longitude}</p>
