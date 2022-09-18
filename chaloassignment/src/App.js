@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import CreateRoute from "./components/createroute/CreateRoute";
 import ViewRoutes from "./components/viewroutes/ViewRoutes";
 import SingleRoute from "./components/viewroutes/SingleRoute";
-import RemoveRoute from "./components/removeroute/RemoveRoute";
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
         <Route path="/createroute" element={<CreateRoute />} />
         <Route path="/routes" element={<ViewRoutes />} />
         <Route path="/route/:routeId" element={<SingleRoute />} />
-        <Route path="/removeroute" element={<RemoveRoute />} />
+        <Route path="/editroute/:routeId" element={<CreateRoute />} />
       </Routes>
     </div>
   );
