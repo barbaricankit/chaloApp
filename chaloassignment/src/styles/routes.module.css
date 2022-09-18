@@ -64,9 +64,6 @@
   padding: 0.4rem 1.5rem;
   margin: 1rem;
 }
-/* .route_status {
-  padding-right: 2rem;
-} */
 .even_list_data {
   background-color: var(--table_even_list_color);
 }
