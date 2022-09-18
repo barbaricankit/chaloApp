@@ -1,10 +1,5 @@
-// import { useState } from "react";
-import { utils, writeFile } from "xlsx";
 import { useRoute } from "../../context/routes-context";
 import { AiOutlineDownload } from "react-icons/ai";
-// import NavHeader from "../navheader/NavHeader";
-// import Error from "../Error";
-// import { handleImport } from "../../utils";
 import style from "../../styles/bulkupload.module.css";
 import { handleExport } from "../../utils";
 
